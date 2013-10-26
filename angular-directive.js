@@ -1,11 +1,11 @@
 /*
- * angularjs-directive v0.2.0
+ * angular-directive v0.0.1
  * (c) 2013 niceilm http://niceilm.net
  * License: MIT
  */
 'use strict';
 
-angular.module('nangularjs.directive', []).
+angular.module('nangular.directive', []).
     directive('loadingComplete', [function () {
         return {
             restrict: 'A',
