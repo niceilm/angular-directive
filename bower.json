@@ -1,0 +1,8 @@
+{
+    "name": "angularjs-directive",
+    "version": "0.0.1",
+    "main": "angularjs-directive.js",
+    "dependencies": {
+        "angular": "~1.2.0-rc.2"
+    }
+}
