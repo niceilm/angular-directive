@@ -43,6 +43,19 @@ angular.module('nangular.directive', []).
       }
     }
   }]).
+  directive('naWhenActive', ['$location', function($location) {
+    return {
+      restrict : 'A',
+      link : function(scope, element, attrs) {
+        if($location.path() === attrs.naWhenActive) {
+          element.addClass("active");
+        } else {
+
+          element.removeClass("active");
+        }
+      }
+    }
+  }]).
   directive('naKeydownThanBlur', [function() {
     return {
       restrict : 'A',
