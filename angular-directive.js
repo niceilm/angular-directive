@@ -29,14 +29,19 @@ angular.module('nangular.directive', []).
       }
     }
   }]).
-  directive('naFocus', [function() {
+  directive('naFocus', ['$timeout', function($timeout) {
     return {
       restrict : 'A',
       link : function(scope, element, attr) {
         var el = element.get(0);
         try {
           if(el && typeof el.focus == "function") {
-            el.focus();
+            $timeout(function() {
+              el.blur();
+              $timeout(function() {
+                el.focus();
+              });
+            });
           }
         } catch(me) {
         }
