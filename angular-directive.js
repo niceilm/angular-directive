@@ -61,6 +61,15 @@ angular.module('nangular.directive', []).
       }
     }
   }]).
+  directive('naRedirect', function($window, $location) {
+    return {
+      restrict : 'A',
+      link : function postLink(scope, element, attrs) {
+        var currentUrl = $location.url();
+        $window.location.href = attrs.naRedirect + currentUrl;
+      }
+    };
+  }).
   directive('naKeydownThanBlur', [function() {
     return {
       restrict : 'A',
