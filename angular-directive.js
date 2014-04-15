@@ -65,8 +65,10 @@ angular.module('nangular.directive', []).
     return {
       restrict : 'A',
       link : function postLink(scope, element, attrs) {
-        var currentUrl = $location.url();
-        $window.location.href = attrs.naRedirect + currentUrl;
+        if(attrs.naRedirect) {
+          var currentUrl = $location.url();
+          $window.location.href = attrs.naRedirect + currentUrl;
+        }
       }
     };
   }).
