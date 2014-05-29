@@ -72,23 +72,20 @@ angular.module('nangular.directive', []).
       }
     };
   }).
-  directive('naLinkByLocation', function($window) {
+  directive('naLinkByLocation', ['$window', function($window) {
     return {
-      scope: {remotes: "@"},
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
         //  Mobile Safari in standalone mode
         if(("standalone" in $window.navigator) && $window.navigator.standalone) {
           element.click(function(event) {
-            if('href' in attrs && attrs.href.indexOf('http') !== -1 && (attrs.href.indexOf($window.location.host) !== -1 || scope.remotes)) {
-              event.preventDefault();
-              $window.location.href = attrs.href;
-            }
+            event.preventDefault();
+            $window.location.href = attrs.href;
           });
         }
       }
     };
-  }).
+  }]).
   directive('naKeydownThanBlur', [function() {
     return {
       restrict: 'A',
